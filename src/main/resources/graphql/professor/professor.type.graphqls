@@ -1,0 +1,10 @@
+# tipo de retorno / todos os retornos
+type ProfessorResponse {
+    id: ID
+    nome: String
+    email: String
+    formacao: String
+    departamento: String
+    areaAtuacao: String
+    coordenador: Boolean
+}

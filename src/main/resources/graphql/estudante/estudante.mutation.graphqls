@@ -1,0 +1,7 @@
+extend type Mutation {
+    criarEstudante(estudanteRequest: EstudanteRequest): EstudanteResponse
+    criarCandidatura(idEstudante: ID!, idVaga: ID!): EstudanteCandidatura
+    atualizarEstudante(id: ID!, request: EstudanteRequest!): EstudanteResponse
+    deletarEstudante(id: ID!): Boolean
+    deletarCandidatura(id: ID!, idVaga: ID!): Boolean
+}

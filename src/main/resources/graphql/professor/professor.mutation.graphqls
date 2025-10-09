@@ -1,0 +1,5 @@
+extend type Mutation {
+    criarProfessor(request: ProfessorRequest!): ProfessorResponse
+    atualizarProfessor(id: ID!, request: ProfessorRequest!): ProfessorResponse
+    deletarProfessor(id: ID!): Boolean
+}

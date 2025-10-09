@@ -1,0 +1,4 @@
+extend type Query {
+    buscarEstudantePorId(id: ID!): EstudanteResponse
+    listarEstudantesPorFiltro(filter: EstudanteRequestFilter): [EstudanteResponse]
+}

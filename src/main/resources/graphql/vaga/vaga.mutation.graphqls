@@ -1,0 +1,5 @@
+extend type Mutation {
+    criarVaga(idProfessor: ID!, vaga: VagaRequest!): Vaga
+    atualizarVaga(id: ID!, idProfessor: ID!, request: VagaRequest!): Vaga
+    deletarVaga(id: ID!, idProfessor: ID!): Boolean
+}

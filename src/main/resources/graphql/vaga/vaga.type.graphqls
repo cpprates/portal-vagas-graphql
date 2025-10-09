@@ -1,0 +1,10 @@
+# tipo de retorno / todos os retornos
+type Vaga {
+    id: ID
+    titulo: String
+    descricao: String
+    empresa: String
+    localizacao: String
+    dataCriacao: String
+    idProfessor: String
+}

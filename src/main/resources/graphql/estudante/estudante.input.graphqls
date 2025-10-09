@@ -1,0 +1,20 @@
+# tipo de entrada
+
+input EstudanteRequest {
+    nome: String!
+    registroAcademico: String!
+    curso: String!
+    email: String!
+    habilidades: [String]
+    tecnologias: [String]
+    textoApresentacao: String
+    site: String
+    senha: String!
+}
+
+input EstudanteRequestFilter {
+    nome: String
+    curso: String
+    habilidades: [String]
+    tecnologias: [String]
+}

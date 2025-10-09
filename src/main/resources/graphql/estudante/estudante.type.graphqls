@@ -1,0 +1,18 @@
+# tipo de retorno / todos os retornos
+type EstudanteResponse {
+    id: ID!
+    nome: String
+    email: String
+    registroAcademico: String
+    curso: String
+    habilidades: [String]
+    tecnologias: [String]
+    textoApresentacao: String
+    site: String
+    candidaturas: [EstudanteCandidatura]
+}
+
+type EstudanteCandidatura {
+    dataCandidatura: String
+    vaga: Vaga
+}

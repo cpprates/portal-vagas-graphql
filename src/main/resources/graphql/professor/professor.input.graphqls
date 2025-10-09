@@ -1,0 +1,19 @@
+# tipo de entrada
+
+input ProfessorRequest {
+    nome: String!
+    email: String!
+    formacao: String
+    areaAtuacao: String
+    departamento: String!
+    coordenador: Boolean!
+    senha: String!
+}
+
+input ProfessorRequestFilter {
+    nome: String
+    email: String
+    formacao: String
+    areaAtuacao: String
+    departamento: String
+}

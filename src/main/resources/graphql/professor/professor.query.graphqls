@@ -1,0 +1,5 @@
+extend type Query {
+    findAllProfessores: [ProfessorResponse]
+    buscarProfessorPorId(id: ID!): ProfessorResponse
+    listarProfessoresPorFiltro(filter: ProfessorRequestFilter): [ProfessorResponse]
+}

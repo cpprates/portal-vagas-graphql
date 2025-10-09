@@ -1,0 +1,14 @@
+# tipo de entrada
+input VagaRequest {
+    titulo: String!
+    descricao: String!
+    empresa: String!
+    localizacao: String!
+}
+
+input VagaRequestFilter {
+    titulo: String
+    empresa: String
+    localizacao: String
+    idProfessor: String
+}
