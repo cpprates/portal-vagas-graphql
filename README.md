@@ -1,4 +1,17 @@
-## como rodar o docker:
+# Portal de Vagas em GraphQL e REST
+> Trabalho de Conclusão de Curso II onde o objetivo é comparar ambas arquiteturas utilizando o mesmo portal de vagas.
+> Possui uma camada Controller em REST e uma camada Controller em GraphQL.
+> Ambas Controllers utilizam o mesmo caminho de execução dos endpoints (Service, Repository, Banco de Dados).
+
+## Tecnologias
+
+- Java 17
+- Spring Boot
+- GrpahQL
+- MongoDB com Docker
+- JMeter para testes de carga
+
+## MongoDB com Docker:
 
 > Para criar o docker:
 >```
@@ -29,7 +42,7 @@
 > No ```application.properties``` colocar a linha:
 ```spring.data.mongodb.uri=mongodb://localhost:27018/portalvagas```
 
-## config do application.properties
+### application.properties
 
 ```
 spring.application.name=portal-vagas-graphql
@@ -38,7 +51,19 @@ spring.graphql.graphiql.path=/graphiql
 spring.data.mongodb.uri=mongodb://localhost:27018/portalvagas
 ```
 
-## comandos do graphql:
+## Testes no JMeter
+
+Para rodar os testes é preciso alterar a quantidade de usuários desejada no JMeter GUI.
+
+Para executar o JMeter, utilize o terminal: ```./jmeter``` na pasta ```/bin```
+
+Para executar os testes de carga, utilize o comando abaixo, atentando-se para as pastas correspondentes:
+
+```
+./jmeter.sh -n -t </home/caminho do teste .jmx> -l </home/caminho para criar o .csv de saída> -e -o </home/caminho da pasta criada para exportar os resultados>
+```
+
+## GraphQL comandos:
 
 ### get all:
 ```graphql
