@@ -51,19 +51,70 @@ spring.graphql.graphiql.path=/graphiql
 spring.data.mongodb.uri=mongodb://localhost:27018/portalvagas
 ```
 
-## Testes no JMeter
+## Testes com Apache JMeter
 
-Para rodar os testes é preciso alterar a quantidade de usuários desejada no JMeter GUI.
+O Apache JMeter é uma ferramenta open-source utilizada para testes de carga, desempenho e stress em aplicações web.
+Ele permite simular múltiplos usuários acessando endpoints simultaneamente e coletar métricas como tempo de resposta,
+throughput e uso de recursos. Neste projeto, o JMeter foi utilizado para executar cenários de teste sobre as APIs REST e GraphQL.
 
-Para executar o JMeter, utilize o terminal: ```./jmeter``` na pasta ```/bin```
+### Instalação do Apache JMeter
 
-Para executar os testes de carga, utilize o comando abaixo, atentando-se para as pastas correspondentes:
+1. Acesse o site oficial: https://jmeter.apache.org/download_jmeter.cgi
+2. Baixe a versão mais recente (arquivo .zip ou .tgz)
+3. Extraia o conteúdo em uma pasta de sua escolha
+4. Para rodar a interface gráfica (GUI), basta executar:
+   * Windows: bin/jmeter.bat
+   * Linux/Mac: `./jmeter` na pasta /bin
+
+### Abrir o plano de testes (.jmx)
+
+Este repositório contém o arquivo: `jmeter/Teste GraphQL.jmx`
+Para abrir:
+1. Abra o JMeter
+2. Clique em File → Open
+3. Selecione o arquivo .jmx do repositório
+
+O plano já está configurado com:
+* Thread Groups
+* CSV Data Set Config
+* HTTP Request samplers
+
+### Executar pela Interface Gráfica
+
+Recomenda-se executar somente os scripts de população do banco de dados pela GUI.
+Para isso, deixe os demais testes com a opção disable que aparece ao clicar com o botão direito em cada Thread Group.
+
+Depois de executar os scripts, verifique se o banco de dados está com todas as informações.
+Ainda, é preciso criar um registro de professor para garantir que os testes rodem quando precisa do ID do professor.
+É possível testar a aplicação utilizando o Swagger, pois todos os endpoints funcionam perfeitamente.
+`localhost:8080/swagger-ui/index.html#/`
+
+### Executar pela Linha de Comando
+
+Para os testes de carga você pode rodar através do botão Play (verde) na GUI, mas pode haver inconsistência nos dados obtidos.
+Dessa forma, recomenda-se executar pelo terminal pois é a forma mais fiel de reproduzir os testes apresentados no TCC.
+
+Para isso, você deve salvar o plano de teste depois de fazer as alterações que deseja e fechar o programa.
+
+No diretório raiz do JMeter, utilize o comando abaixo, atentando-se para as pastas correspondentes:
 
 ```
 ./jmeter.sh -n -t </home/caminho do teste .jmx> -l </home/caminho para criar o .csv de saída> -e -o </home/caminho da pasta criada para exportar os resultados>
 ```
 
+`-n`: Indica que o JMeter deve ser executado no modo non-GUI (linha de comando).
+
+`-t`: <caminho_para_seu_script.jmx>: Especifica o caminho para o arquivo do plano de teste (.jmx) que você criou na interface gráfica do JMeter.
+
+`-l`: <caminho_para_arquivo_resultados.csv>: Define o local e o nome do arquivo de resultados (.csv) onde os dados brutos do teste serão salvos. Este arquivo é necessário para gerar o relatório HTML.
+
+`-e`: Garante que o relatório HTML (Dashboard) seja gerado após a conclusão do teste de carga.
+
+`-o`: <caminho_para_pasta_de_saida_html>: Define o diretório onde o relatório HTML será salvo. Importante: A pasta especificada deve estar vazia ou não existir antes de executar o comando.
+
 ## GraphQL comandos:
+
+Comandos para rodar no localhost do GraphQL: `http://localhost:8080/graphiql?path=/graphql`
 
 ### get all:
 ```graphql
